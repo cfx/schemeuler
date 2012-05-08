@@ -1,3 +1,5 @@
+;; a: 5537376230
+
 (define data
   (list
    "37107287533902102798797998220837590246510135740250" 
@@ -102,14 +104,13 @@
    "53503534226472524250874054075591789781264330331690"))
 
 
-(define problem-13
-  (lambda (l)
-    (letrec ([sum (lambda (l)
-                    (if (null? l)
-                        0
-                        (+ (string->number (car l))
-                           (sum (cdr l)))))])
-             (substring (number->string (sum l)) 0 10))))
+(define (problem-13 l)
+  (letrec ([sum (lambda (l)
+                  (if (null? l)
+                      0
+                      (+ (string->number (car l))
+                         (sum (cdr l)))))])
+    (substring (number->string (sum l)) 0 10)))
 
 
 (display (problem-13 data))
